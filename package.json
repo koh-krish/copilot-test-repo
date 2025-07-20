@@ -1,0 +1,12 @@
+{
+  "name": "copilot-pr-review-test",
+  "version": "1.0.0",
+  "description": "A basic Express.js app with intentional mistakes for Copilot PR review testing.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
