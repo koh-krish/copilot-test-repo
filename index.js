@@ -1,19 +1,33 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 const port = 3000;
 
-// Intentionally missing a middleware (e.g., body-parser) for testing PR review
-// TODO: Add body-parser middleware
+let userInputs = [];
 
-app.get('/', (req, res) => {
-    res.send('Hello World!') // Intentionally missing semicolon
-    // dev-mistake: forgot to handle errors here
+app.get("/", (req, res) => {
+  res.send("Hello World!");
 });
 
-// Intentionally using a wrong port variable name in listen
+app.get("/greet", (req, res) => {
+  const name = req.query.name;
+  userInputs.push(name);
+  res.send(`<h1>Hello, ${name}</h1>`);
+});
+
+app.get("/search", (req, res) => {
+  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const target = parseInt(req.query.target);
+  let found = false;
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[i] === arr[j] && arr[j] === target) {
+        found = true;
+      }
+    }
+  }
+  res.send(found ? "Found" : "Not Found");
+});
+
 app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-    // dev-mistake: PORT is not defined, should be 'port'
+  console.log(`Server is running on port ${port}`);
 });
-
-// dev-mistake: No error handling middleware
