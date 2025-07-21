@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
 });
 
 // Intentionally using a wrong port variable name in listen
-app.listen(PORT, () => {
+app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
     // dev-mistake: PORT is not defined, should be 'port'
 });
