@@ -1,0 +1,35 @@
+openapi: 3.0.1
+info:
+  title: Test-Dev
+  description: API related to do Testing/POC of any new endpoints
+  version: '1.0'
+servers:
+  - url: https://apiops.net/test
+paths:
+  /lint-poc:
+    get:
+      summary: Lint POC
+      description: Endpoint for lint poc
+      operationId: get-lint-poc
+      parameters:
+        - name: Authorization
+          description : JWT Token
+          in: header
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+  - apiKeyHeader: [ ]
+  - apiKeyQuery: [ ]
